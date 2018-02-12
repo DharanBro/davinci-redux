@@ -8,15 +8,12 @@ const styles = StyleSheet.create({
     }
 });
 
-const CategoryPage = ({quest}) => {
-    // const questionCards = quest.map(employee => (
-    //     <QuestionCards employeeData={employee} key={employee.id}/>
-    // ));
+const CategoryPage = ({ questions }) => {
+    const questionCards = questions.map(question => (
+        <QuestionCards questionData={question} key={question.key} />
+    ));
     return (<ScrollView>
-        <View style={styles.questionsMainContainer}>
-            {/* {questionCards} */}
-        </View>
-    
+        {questionCards}
     </ScrollView>)
 }
 

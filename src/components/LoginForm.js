@@ -10,8 +10,8 @@ export default class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      email: 'giridharanr@visualbi.com',
+      password: 'fJABx3F2fcrV'
     }
     this.navigationOptions = {
       title: 'Login',
@@ -78,6 +78,7 @@ export default class LoginForm extends React.Component {
                 placeholder="Password"
                 placeholderTextColor="#eee"
                 secureTextEntry
+                value={this.state.password}
               />
               <TouchableOpacity
                 style={styles.buttonContainer}

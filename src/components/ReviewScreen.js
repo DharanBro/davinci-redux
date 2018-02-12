@@ -29,12 +29,24 @@ const ReviewScreen = ({ index, routes, questions, tabNavState, handleIndexChange
         const getCategoryPage = (value) => (value => (<CategoryPage />))
 
         const sceneToMap = categories.reduce((o, key) => ({
-            ...o, [key]: () => <CategoryPage />
+            ...o, [key]: () => <CategoryPage questions={questions[key]} />
 
         }), {});
 
-        const renderScene = SceneMap(sceneToMap);
-        const renderHeader = props => <TabBar {...props} scrollEnabled />;
+        // const renderScene = SceneMap(sceneToMap);
+        const renderScene = ({ route }) => {
+            if (Math.abs(index - routes.indexOf(route)) > 1) {
+                return null;
+            }
+            return <CategoryPage questions={questions[route.key]} />
+        }
+        const renderHeader = props => <TabBar
+            onTabPress={({ route }) => {
+                
+            }}
+            useNativeDriver
+            {...props}
+            scrollEnabled />;
 
         return (
 
